@@ -24,16 +24,15 @@ const loadingPage = async (cardId) => {
   // const slicedData = myData.slice(0, 2);
   // console.log(myData.data.tools);
 
-  myData.data.tools.slice(0, 6).forEach((tool) => {
+  myData.data.tools?.slice(0, 6).forEach((tool) => {
     console.log(tool.image);
     const div = document.createElement('div');
     div.className = 'card my-12 bg-gray-50 text-black shadow-xl';
     div.innerHTML = `
     <figure class="px-5 pt-5">
     <img src=${
-      tool?.image ||
-      'https://images.pexels.com/photos/15863066/pexels-photo-15863066/free-photo-of-monitor-screen-showing-chatgpt-landing-page.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    } alt="Nothing" class="rounded-xl" />
+      tool?.image
+    } alt="Nothing" class="rounded-xl"   onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'"/>
     </figure>
           <div class="card-body ">
             <h2 class="text-2xl font-semibold  ">Features</h2>

@@ -66,42 +66,42 @@ const loadingPage = async (cardId) => {
     cardContainer.appendChild(div);
   });
 };
-// loadingPage('01');
+loadingPage('01');
 
 // from ChatGpt START--------------
 // Function to sort the data based on published_in
-const sortByDate = async () => {
-  const response = await fetch(
-    'https://openapi.programming-hero.com/api/ai/tools'
-  );
-  const myData = await response.json();
+// const sortByDate = async () => {
+//   const response = await fetch(
+//     'https://openapi.programming-hero.com/api/ai/tools'
+//   );
+//   const myData = await response.json();
 
-  myData.data.tools?.splice(5, 1);
-  myData.data.tools?.splice(5, 3);
-  myData.data.tools?.splice(6, 1);
+//   myData.data.tools?.splice(5, 1);
+//   myData.data.tools?.splice(5, 3);
+//   myData.data.tools?.splice(6, 1);
 
-  console.log('Sorting by date...');
-  console.log(myData.data.tools);
-  myData.data.tools.sort((a, b) => {
-    console.log('Comparing dates:', a.published_in, b.published_in);
-    return new Date(a.published_in) - new Date(b.published_in);
-  });
-};
+//   console.log('Sorting by date...');
+//   console.log(myData.data.tools);
+//   myData.data.tools.sort((a, b) => {
+//     console.log('Comparing dates:', a.published_in, b.published_in);
+//     return new Date(a.published_in) - new Date(b.published_in);
+//   });
+// };
 
-// Function to remove existing cards from the DOM
-const clearCards = () => {
-  const cardContainer = document.getElementById('card-container');
-  cardContainer.innerHTML = '';
-};
+// // Function to remove existing cards from the DOM
+// const clearCards = () => {
+//   const cardContainer = document.getElementById('card-container');
+//   cardContainer.innerHTML = '';
+// };
 
-// Function to load sorted cards
-const loadSortedCards = () => {
-  clearCards();
-  sortByDate();
-  loadingPage(); // Load the sorted cards
-};
+// // Function to load sorted cards
+// const loadSortedCards = () => {
+//   clearCards();
+//   sortByDate();
+//   loadingPage(); // Load the sorted cards
+// };
 
-// Event listener for the "Sort By Date" button
-const sortButton = document.querySelector('.btn-error');
-sortButton.addEventListener('click', loadSortedCards);
+// // Event listener for the "Sort By Date" button
+// const sortButton = document.querySelector('.btn-error');
+// sortButton.addEventListener('click', loadSortedCards);
 // from ChatGpt ends-----------------
